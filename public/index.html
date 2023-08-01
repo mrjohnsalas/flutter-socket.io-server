@@ -9,6 +9,7 @@
     <h1>Denied access</h1>
     <script src="socket.io/socket.io.js"></script>
     <script>
+
         var socket = io();
 
         socket.on('connect', function(){
@@ -25,6 +26,15 @@
                 message: 'Welcome to the chat app'
             });
         });
+
+        socket.on('sendMessage', (message) =>{
+            console.log('newMessage', message);
+        });
+        
+        socket.on('active-bands', (bands) =>{
+            console.table(bands);
+        });
+
     </script>
 </body>
 </html>
